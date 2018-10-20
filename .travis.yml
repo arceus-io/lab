@@ -19,4 +19,4 @@ before_install:
   - brew install bazel glib sdl2
 
 script:
-  - bazel build -c opt --copt=-Wno-sign-compare --show_progress_rate_limit=10 //:game
+  - bazel build -c opt --copt=-Wno-sign-compare --apple_platform_type=macos --show_progress_rate_limit=10 --dynamic_mode=off //:game //:game_lib_headless_macos //deepmind/... //q3map2/... //testing/... //lua_tests/... && bazel test -c opt --copt=-Wno-sign-compare --apple_platform_type=macos --dynamic_mode=off //deepmind/... 
